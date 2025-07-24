@@ -1,0 +1,19 @@
+# === Credenciales ===
+.env
+
+# === Entorno local ===
+.venv/
+__pycache__/
+*.py[cod]
+
+# === Datos crudos / archivos pesados ===
+data/
+*.json
+*.pdf
+
+# === Jupyter ===
+.ipynb_checkpoints/
+
+# === SO ===
+.DS_Store
+Thumbs.db
