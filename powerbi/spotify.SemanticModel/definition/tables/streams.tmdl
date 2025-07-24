@@ -1,0 +1,267 @@
+table streams
+	lineageTag: 8979c803-2a89-4ff5-a698-269ffa4f4a7c
+
+	column _id
+		dataType: string
+		lineageTag: 88452bba-4250-411d-b54e-5fc9ff75652d
+		summarizeBy: none
+		sourceColumn: _id
+
+		annotation SummarizationSetBy = Automatic
+
+	column audiobook_chapter_title
+		dataType: string
+		lineageTag: 9996efcc-4807-4952-b36a-0594745e366e
+		summarizeBy: none
+		sourceColumn: audiobook_chapter_title
+
+		annotation SummarizationSetBy = Automatic
+
+	column audiobook_chapter_uri
+		dataType: string
+		lineageTag: 65bdedc6-1be5-4e14-b539-8009eec9c246
+		summarizeBy: none
+		sourceColumn: audiobook_chapter_uri
+
+		annotation SummarizationSetBy = Automatic
+
+	column audiobook_title
+		dataType: string
+		lineageTag: 2a25f4a7-96b9-4051-993f-46583c54105f
+		summarizeBy: none
+		sourceColumn: audiobook_title
+
+		annotation SummarizationSetBy = Automatic
+
+	column audiobook_uri
+		dataType: string
+		lineageTag: 2efe83a7-ceda-4a8e-a48c-dd731ef95826
+		summarizeBy: none
+		sourceColumn: audiobook_uri
+
+		annotation SummarizationSetBy = Automatic
+
+	column conn_country
+		dataType: string
+		lineageTag: 299cfcc5-3b89-4062-952a-97cff7692145
+		summarizeBy: none
+		sourceColumn: conn_country
+
+		annotation SummarizationSetBy = Automatic
+
+	column episode_name
+		dataType: string
+		lineageTag: 81bf5d3a-ecd0-489e-90a7-ce525c78ba83
+		summarizeBy: none
+		sourceColumn: episode_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column episode_show_name
+		dataType: string
+		lineageTag: eb9f7942-09c6-4e02-8dad-4e84313fdb4d
+		summarizeBy: none
+		sourceColumn: episode_show_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column incognito_mode
+		dataType: int64
+		formatString: 0
+		lineageTag: 72cbb5b6-f1b4-4206-acb7-a77a15935c76
+		summarizeBy: sum
+		sourceColumn: incognito_mode
+
+		annotation SummarizationSetBy = Automatic
+
+	column master_metadata_album_album_name
+		dataType: string
+		lineageTag: f59991cf-187b-43bd-a2e0-ffad00f17bba
+		summarizeBy: none
+		sourceColumn: master_metadata_album_album_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column master_metadata_album_artist_name
+		dataType: string
+		lineageTag: 766044a9-1966-4c87-a1ab-2b7342e55451
+		summarizeBy: none
+		sourceColumn: master_metadata_album_artist_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column master_metadata_track_name
+		dataType: string
+		lineageTag: 4a5abb9d-c910-4c4e-8a0a-2ef9a357a5d5
+		summarizeBy: none
+		sourceColumn: master_metadata_track_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column ms_played
+		dataType: double
+		formatString: 0
+		lineageTag: 4d805780-bdf6-466b-9980-928e2d7ba0ed
+		summarizeBy: sum
+		sourceColumn: ms_played
+
+		annotation SummarizationSetBy = Automatic
+
+	column offline
+		dataType: int64
+		formatString: 0
+		lineageTag: b7299e44-ba57-47c6-97cb-1ac986f039e0
+		summarizeBy: sum
+		sourceColumn: offline
+
+		annotation SummarizationSetBy = Automatic
+
+	column offline_timestamp
+		dataType: int64
+		formatString: 0
+		lineageTag: c47be0b1-1627-42c6-b488-1b520879d117
+		summarizeBy: sum
+		sourceColumn: offline_timestamp
+
+		annotation SummarizationSetBy = Automatic
+
+	column platform
+		dataType: string
+		lineageTag: 34167580-4a17-4ed8-9f29-f18a7f4ed24c
+		summarizeBy: none
+		sourceColumn: platform
+
+		annotation SummarizationSetBy = Automatic
+
+	column reason_end
+		dataType: string
+		lineageTag: 85a590f5-9bc5-47c4-8546-16f13524a37b
+		summarizeBy: none
+		sourceColumn: reason_end
+
+		annotation SummarizationSetBy = Automatic
+
+	column reason_start
+		dataType: string
+		lineageTag: bfab1b9b-c8a4-43a4-85c4-69bb47367b09
+		summarizeBy: none
+		sourceColumn: reason_start
+
+		annotation SummarizationSetBy = Automatic
+
+	column shuffle
+		dataType: int64
+		formatString: 0
+		lineageTag: 98fcb720-1bfb-416b-9b4f-7a2efcc26ac5
+		summarizeBy: sum
+		sourceColumn: shuffle
+
+		annotation SummarizationSetBy = Automatic
+
+	column skipped
+		dataType: int64
+		formatString: 0
+		lineageTag: 42767c11-eda8-4baa-b5db-2746005e15cb
+		summarizeBy: sum
+		sourceColumn: skipped
+
+		annotation SummarizationSetBy = Automatic
+
+	column spotify_episode_uri
+		dataType: string
+		lineageTag: a7290b97-288d-4d15-83f4-886f73e4d0c3
+		summarizeBy: none
+		sourceColumn: spotify_episode_uri
+
+		annotation SummarizationSetBy = Automatic
+
+	column spotify_track_uri
+		dataType: string
+		lineageTag: f0699183-f6b0-460b-84be-feb24638f159
+		summarizeBy: none
+		sourceColumn: spotify_track_uri
+
+		annotation SummarizationSetBy = Automatic
+
+	column ts
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: aebc0467-38c3-422e-b695-ddfd5e65d49f
+		summarizeBy: none
+		sourceColumn: ts
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column user
+		dataType: string
+		lineageTag: b7755656-91b3-44eb-97e5-2a6a5b611069
+		summarizeBy: none
+		sourceColumn: user
+
+		annotation SummarizationSetBy = Automatic
+
+	column HourSlot
+		dataType: string
+		lineageTag: e8d3df8e-eae1-46a0-b18a-5e9e8086ab88
+		summarizeBy: none
+		sourceColumn: HourSlot
+
+		annotation SummarizationSetBy = Automatic
+
+	partition streams = m
+		mode: import
+		source =
+				let
+				    // --- Conexión ---
+				    Origen            = Odbc.DataSource("dsn=MongoBI", [HierarchicalNavigation=true]),
+				    spotify_Database  = Origen{[Name="spotify", Kind="Database"]}[Data],
+				    streams_View      = spotify_Database{[Name="streams", Kind="View"]}[Data],
+				
+				    // --- Preparación ---
+				    // Duplicamos ts para conservar la hora (la copia será datetime)
+				    #"Columna duplicada" =
+				        Table.DuplicateColumn(streams_View, "ts", "ts - Copia"),
+				
+				    // ts original solo fecha
+				    #"Tipo cambiado" =
+				        Table.TransformColumnTypes(#"Columna duplicada", {{"ts", type date}}),
+				
+				    // ms_played → minutos redondeados
+				    #"Minutos calculados" =
+				        Table.TransformColumns(
+				            #"Tipo cambiado",
+				            {{"ms_played", each Number.Round(_ / 60000, 2), type number}}
+				        ),
+				
+				    // --- Creación de franja de 2 h ---
+				#"Franja 2h" =
+				    Table.AddColumn(
+				        #"Minutos calculados",
+				        "HourSlot",
+				        each
+				            let
+				                tsCopy  = DateTime.From([#"ts - Copia"]),      // garantiza DateTime
+				                h       = Time.Hour(DateTime.Time(tsCopy)),    // 0–23 ✅
+				                slot    = Number.RoundDown(h / 2) * 2,         // 0,2,4…22
+				                etiqueta =
+				                    Text.PadStart(Text.From(slot), 2, "0") & ":00-" &
+				                    Text.PadStart(Text.From(slot + 1), 2, "0") & ":59"
+				            in
+				                etiqueta,
+				        type text
+				    ),
+				
+				
+				
+				    // --- Limpieza final ---
+				    #"Columnas removidas" =
+				        Table.RemoveColumns(#"Franja 2h", {"ts - Copia"})  // quita auxiliar
+				in
+				    #"Columnas removidas"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,118 @@
+table measure
+	lineageTag: 680a8626-f740-4d30-911b-7c12c8d26070
+
+	measure total_plays = COUNTROWS(streams)
+		formatString: 0
+		lineageTag: 996ba298-9630-4c23-b873-78c2cb6882bd
+
+	measure minutes = SUM(streams[ms_played])
+		formatString: 0
+		lineageTag: 58116b1a-7883-4cfd-8e23-6f1cd78756de
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure tracks = DISTINCTCOUNTNOBLANK(streams[master_metadata_track_name])
+		formatString: 0
+		lineageTag: bfff51a5-54e6-4593-806f-8a9d03762b5e
+
+	measure artists = DISTINCTCOUNTNOBLANK(streams[master_metadata_album_artist_name])
+		formatString: 0
+		lineageTag: 2d0374b5-fbcf-4ed4-a576-2123ecffc26b
+
+	measure albums = DISTINCTCOUNTNOBLANK(streams[master_metadata_album_album_name])
+		formatString: 0
+		lineageTag: 6c8bb4d4-83a4-4139-94ba-529d8a3e9e0e
+
+	measure shuffle_rate = DIVIDE ( CALCULATE ( [total_plays], streams[shuffle] = 1 ), [total_plays],0 )
+		lineageTag: 2b701d7f-6962-4c29-bb74-2cff70c01d75
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure skip_rate = DIVIDE ( CALCULATE ( [total_plays], streams[skipped] = 1 ), [total_plays], 0 )
+		formatString: 0%;-0%;0%
+		lineageTag: 98faa586-c0a0-40f8-b0ff-cf4679f9d34c
+
+	measure 'min per play' = DIVIDE([minutes],[total_plays],0)
+		lineageTag: 1979dc49-798c-4fe0-bd0c-0daf97c89ef8
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Title = "⏳ Monthly Listening Time per User ("&SELECTEDVALUE(Calendario[Year])&")"
+		lineageTag: f847c997-f141-4b12-aeb3-e763d77eb74d
+
+	measure MaxPeakKey = ```
+			
+			VAR SummaryTable =
+			    ADDCOLUMNS(
+			        SUMMARIZE(
+			            streams,
+			            streams[HourSlot],
+			            'Calendario'[DayOfWeekName]
+			        ),
+			        "TotalMinutes", [minutes]
+			    )
+			VAR TopRow =
+			    TOPN(1, SummaryTable, [TotalMinutes], DESC)
+			RETURN
+			    SELECTCOLUMNS(TopRow, "Key", CONCATENATE( [HourSlot], [DayOfWeekName] ))
+			
+			
+			```
+		lineageTag: 0e8d05ac-6d37-4e2c-93fe-d38ef0c60b10
+
+	measure IsTruePeak = ```
+			
+			VAR Summary =
+			    ADDCOLUMNS(
+			        SUMMARIZE(
+			            streams,
+			            streams[HourSlot],
+			            'Calendario'[DayOfWeekName]
+			        ),
+			        "@minutes", [minutes]
+			    )
+			VAR TopRow =
+			    TOPN(1, Summary, [@minutes], DESC)
+			VAR TopKey =
+			    SELECTCOLUMNS(
+			        TopRow,
+			        "Key",
+			        streams[HourSlot] & "-" & 'Calendario'[DayOfWeekName]
+			    )
+			VAR CurrentKey =
+			    SELECTEDVALUE(streams[HourSlot]) & "-" & SELECTEDVALUE('Calendario'[DayOfWeekName])
+			RETURN
+			    IF(CurrentKey IN TopKey, 1, 0)
+			
+			
+			```
+		formatString: 0
+		lineageTag: 41a892a3-38cb-42d4-b385-0fbeef468544
+
+	measure MinutesColor = ```
+			
+			VAR peak = [minutes] = [MaxPeakKey]
+			RETURN
+			    IF(
+			        peak,
+			        "#000000",
+			        BLANK()  -- deja que Power BI use el gradiente estándar
+			    )
+			
+			```
+		lineageTag: 786749d7-79b5-469c-b701-fbbd9a868d15
+
+	partition measure = m
+		mode: import
+		source =
+				let
+				    Origen = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Columna1 = _t]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Origen,{{"Columna1", type text}}),
+				    #"Columnas quitadas" = Table.RemoveColumns(#"Tipo cambiado",{"Columna1"})
+				in
+				    #"Columnas quitadas"
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+

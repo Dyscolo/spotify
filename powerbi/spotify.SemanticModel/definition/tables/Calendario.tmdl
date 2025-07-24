@@ -1,0 +1,178 @@
+table Calendario
+	lineageTag: 257bdba9-2cce-434a-8a27-26792e067dc5
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 9e5ae9d1-5340-40af-8665-f332c518e6b8
+		summarizeBy: none
+		sourceColumn: Date
+
+		variation Variación
+			isDefault
+			relationship: 92d6e492-d587-4975-ad7f-2d91eaf88e5a
+			defaultHierarchy: LocalDateTable_8a7e6d68-8001-40b8-b444-b6f50e2f54be.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Year
+		dataType: string
+		lineageTag: a42a7b1d-2745-4ba9-bb3f-74e6765a0b1f
+		summarizeBy: none
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column QuarterOfYear
+		dataType: int64
+		formatString: 0
+		lineageTag: 81e0fde1-dc50-4f8c-a083-2eedcfdfcd04
+		summarizeBy: sum
+		sourceColumn: QuarterOfYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthOfYear
+		dataType: int64
+		formatString: 0
+		lineageTag: 4d442ec5-7978-4066-960a-060db80299fa
+		summarizeBy: sum
+		sourceColumn: MonthOfYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayOfMonth
+		dataType: int64
+		formatString: 0
+		lineageTag: ccc6baa0-6e6f-4bbb-aac8-af806547a4de
+		summarizeBy: sum
+		sourceColumn: DayOfMonth
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateInt
+		dataType: int64
+		formatString: 0
+		lineageTag: f2371021-861d-4fb8-9b52-4a42244a4ae8
+		summarizeBy: sum
+		sourceColumn: DateInt
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthName
+		dataType: string
+		lineageTag: 395ecaeb-254a-4ac1-b02a-d014268cd393
+		summarizeBy: none
+		sourceColumn: MonthName
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthInCalendar
+		dataType: string
+		lineageTag: 47d45325-6c97-40c0-bd84-31a9354ad818
+		summarizeBy: none
+		sourceColumn: MonthInCalendar
+
+		annotation SummarizationSetBy = Automatic
+
+	column QuarterInCalendar
+		dataType: string
+		lineageTag: 161fbced-48da-4cdd-aba5-6737db6a62c7
+		summarizeBy: none
+		sourceColumn: QuarterInCalendar
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayInWeek
+		dataType: int64
+		formatString: 0
+		lineageTag: 2b116b54-62b1-40e6-a783-aa759bb7d8e0
+		summarizeBy: sum
+		sourceColumn: DayInWeek
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayOfWeekName
+		dataType: string
+		lineageTag: 8ec2235a-bcbf-414f-afc4-8a99e86e859f
+		summarizeBy: none
+		sourceColumn: DayOfWeekName
+		sortByColumn: DayInWeek
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekEnding
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: ccf0e5b7-38c4-45a9-b9dc-e186a1129550
+		summarizeBy: none
+		sourceColumn: WeekEnding
+
+		variation Variación
+			isDefault
+			relationship: b997a063-d84b-4586-9c7d-a527e02c66e6
+			defaultHierarchy: LocalDateTable_3889733c-7592-476e-8e6f-90fdf63e1cf2.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Week Number'
+		dataType: int64
+		formatString: 0
+		lineageTag: 753fce29-b739-4549-9aab-b21dd9ad1dda
+		summarizeBy: sum
+		sourceColumn: Week Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthnYear
+		dataType: int64
+		formatString: 0
+		lineageTag: aa61e57e-dc37-4e6d-841a-f664517c2473
+		summarizeBy: sum
+		sourceColumn: MonthnYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column QuarternYear
+		dataType: int64
+		formatString: 0
+		lineageTag: eead7747-3862-48e9-aa59-109c97cc4272
+		summarizeBy: sum
+		sourceColumn: QuarternYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShortYear
+		dataType: string
+		lineageTag: c4f97239-4ba3-456c-9145-619ffc8b8e48
+		summarizeBy: none
+		sourceColumn: ShortYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column FY
+		dataType: string
+		lineageTag: 4045cdd4-74d6-4cc3-9e9c-0285dc170079
+		summarizeBy: none
+		sourceColumn: FY
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Calendario = m
+		mode: import
+		source =
+				let
+				    Origen = Consulta1(#date(2014, 1, 1), #date(2025, 7, 24), 1)
+				in
+				    Origen
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

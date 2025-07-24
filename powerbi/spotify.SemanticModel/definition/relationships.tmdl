@@ -1,0 +1,14 @@
+relationship 92d6e492-d587-4975-ad7f-2d91eaf88e5a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Calendario.Date
+	toColumn: LocalDateTable_8a7e6d68-8001-40b8-b444-b6f50e2f54be.Date
+
+relationship b997a063-d84b-4586-9c7d-a527e02c66e6
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Calendario.WeekEnding
+	toColumn: LocalDateTable_3889733c-7592-476e-8e6f-90fdf63e1cf2.Date
+
+relationship 8c688b30-7dd7-91d6-6ec5-2141fe3a2caa
+	fromColumn: streams.ts
+	toColumn: Calendario.Date
+

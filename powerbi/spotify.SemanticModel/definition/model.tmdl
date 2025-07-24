@@ -1,0 +1,25 @@
+model Model
+	culture: es-ES
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_ProTooling = ["DevMode"]
+
+annotation PBIDesktopVersion = 2.144.1378.0 (25.06)+cba1e61f16ea36d44901f06fa446299040122394
+
+annotation PBI_QueryOrder = ["streams","Consulta1","measure","Calendario"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+ref table streams
+ref table DateTableTemplate_2332036e-8b9a-4ea8-84eb-479a5070e43c
+ref table measure
+ref table Calendario
+ref table LocalDateTable_8a7e6d68-8001-40b8-b444-b6f50e2f54be
+ref table LocalDateTable_3889733c-7592-476e-8e6f-90fdf63e1cf2
+
+ref cultureInfo es-ES
+
