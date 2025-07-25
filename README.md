@@ -10,8 +10,8 @@
 ```
 .
 ├─ data/                       # JSON originales (Spotify Extended Streaming History)
-├─ notebooks/
-│   └─ 01_etl_spotify.ipynb    # Flujo E-T-L → MongoDB
+├─ powerbi/                    # Todos los archivos correspondientes al desarrollo de dashboard
+├─ 01_etl_spotify.ipynb        # Flujo E-T-L → MongoDB
 ├─ spotify_theme.json          # Tema Power BI (colores + Segoe UI)
 ├─ requirements.txt
 ├─ .env.example                # Plantilla credenciales
